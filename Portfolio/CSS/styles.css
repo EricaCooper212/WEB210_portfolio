@@ -1,0 +1,188 @@
+/* PAGE */
+/* html {
+    box-sizing: border-box;
+} */
+/* *, *:before, *:after {
+    box-sizing: inherit;
+} */
+body {
+    background-color: #EDEDE9;
+    margin: 0;
+    Font-Family: 'Poppins', Sans-Serif;
+    Font-Size: 18px;
+}
+/* NAVIGATION */
+ul {
+    text-align: left;
+    list-style: none;
+}
+ul li {
+    display: inline-block;
+    position: relative;
+    padding: 15px 20px;
+    color:#F7F7FF;
+    cursor: pointer;
+    Font-Family: 'Poppins', Sans-Serif;
+    font-size: 20px;
+}
+ul li ul {
+    padding: 0;
+    position: absolute;
+    top: 48px;
+    left: 1000px;
+    width: 200px;
+}
+ul li ul li {
+    display: block;
+}
+#nav {
+    width: 100%;
+    background:  #6F5E5c;
+    color: #EDEDE9;
+}
+#nav #nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    line-height: 1;
+}
+#nav a {
+    display: block;
+    width: 200px;
+    text-decoration: none; 
+}
+#nav a:visited {
+    color:#E3D5CA;
+}
+#nav li ul {
+    position: absolute;
+    background:  #6F5E5C;
+    width: 200px;
+    left: -999em;
+}
+#nav li:hover ul {
+    left:auto;
+}
+#nav li ul li:hover {
+    background: #6F5E5c;
+}
+
+/* TEXT */
+
+h1, h2 {
+    Font-Family: 'Abril Fatface', Cursive;
+    text-align: center;
+}
+
+
+/* ABOUT */
+.about {
+    display: grid;
+    align-items: center;
+    grid-template-areas: 
+    "image-section-one"
+    "title"
+    "image-section-two"
+    "text"
+    ;
+}
+@media (min-width:40em){
+    .about {
+        grid-template-areas: "image-section-one image-section-one image-section-one"
+        "title text text"
+        "image-section-two image-section-two image-section-two"
+    }
+}
+.about h2 {
+    grid-area: title;
+    font-size: 4rem;
+    color:#6F5E5C;
+    padding: 4rem;
+    z-index: 1;
+}
+.about p {
+    grid-area: text;
+    background: #D6CCC2;
+    padding: 1em;
+}
+.about img {
+    grid-column: 1 / 3;
+    grid-row: image-section-one / image-section-two;
+    width: 70%;
+    height: 75%;
+    object-fit: cover;
+}
+
+/* PORTFOLIO */
+.cards {
+    /* max-width: 30em; */
+    margin: 1em;
+    padding: 0;
+    list-style-type: none;
+    /* background-color: #6F5E5C; */
+}
+.cards a {
+    display: block;
+    margin-bottom: 1em;
+    text-decoration: none;
+    /* color:black; */
+}
+.caption {
+    padding: 1em;
+    background:hsla(6, 9%, 40%, .6);
+    color:#E3D5CA;
+    font-size: 1.2em;
+    transition: all .4s;
+}
+a:focus .caption,
+a:hover .caption {
+    background:hsla(6, 9%, 40%, 1)
+}
+.caption-title {
+    margin: 0;
+    font-size: 2em;
+}
+/* .caption p {
+    margin-top: .5em;
+    margin-bottom: 0;
+} */
+
+/* CSS Grid layout for wider screens, when browser supports grid: */
+@supports (grid-area: auto) {
+@media screen and (min-width:30em) {
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1em;
+    }
+    .cards a {
+        margin-bottom: 0;
+    }
+    .card {
+        display: grid;
+    }
+    .card img, .caption {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .caption {
+        display: flex;
+        align-items: flex-end;
+        /* opacity: 0; */
+    }
+
+    a:focus .caption,
+    a:hover .caption, {
+        background:hsla(6, 9%, 40%, .6);
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width: 80em) {
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+}
